@@ -33,6 +33,14 @@ class TodosController < ApplicationController
        @todo.delete
        redirect_to todos_path, notice: 'Se ha eliminado To do seleccionado!'
     end
+
+    def complete
+        @todo = Todo.find(params[:id])
+        todo = @todo.attributes
+        todo[:completed] = true
+        @todo.update(todo)
+        redirect_to todos_path        
+    end 
         
     private
     def todo_params

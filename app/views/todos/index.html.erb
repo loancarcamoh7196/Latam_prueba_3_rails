@@ -7,6 +7,7 @@
     <% @todos.each do |todo| %>
         <li class="list-group-item">
             <%= todo.description %>
+            <%= link_to 'Complete', complete_todo_path(todo.id), class: 'btn btn-success', data: { method: :patch}%>
             <%= link_to 'Detalles', todo_path(todo.id), class: 'btn btn-info' %> 
             <%= link_to 'Editar', edit_todo_path(todo.id), class: 'btn btn-warning'  %>
             <%= link_to 'Eliminar', destroy_todo_path(todo.id), class: 'btn btn-danger', data: {confirm:'Desea eliminar este registro?', method: :delete} %>
