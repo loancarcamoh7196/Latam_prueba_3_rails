@@ -1,8 +1,16 @@
 <div class="row">
     <h1>To do List</h1>
+    <%= link_to 'Nuevo To Do', todos_new_path, class: 'btn btn-success' %>
+</div>
+<div class="row">
     <ul class="list-group">
     <% @todos.each do |todo| %>
-        <li class="list-group-item"> <%= todo.description %> <%= todo.completed %> </li>
+        <li class="list-group-item">
+            <%= todo.description %>
+            <%= link_to 'Detalles', todo_path(todo.id), class: 'btn btn-info' %> 
+            <%= link_to 'Editar', edit_todo_path(todo.id), class: 'btn btn-warning'  %>
+            <%= link_to 'Eliminar', destroy_todo_path(todo.id), class: 'btn btn-danger', data: {confirm:'Desea eliminar este registro?', method: :delete} %>
+        </li>
     <% end %>
     </ul>
 </div>

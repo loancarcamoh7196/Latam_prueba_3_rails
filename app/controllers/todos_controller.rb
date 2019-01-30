@@ -24,13 +24,15 @@ class TodosController < ApplicationController
 
     def update
         @todo = Todo.find(params[:id])
-        #todo = Todo.new(todo_params)
-        #todo_params[:completed] == 1 ? true : false
         @todo.update(todo_params)
         redirect_to todos_path, notice: 'Se ha actualizado To do seleccionado!'
-
     end
     
+    def destroy
+       @todo = Todo.find(params[:id])
+       @todo.delete
+       redirect_to todos_path, notice: 'Se ha eliminado To do seleccionado!'
+    end
         
     private
     def todo_params

@@ -4,14 +4,7 @@
             <%= f.label :description, "Description" %>
             <%= f.text_field :description, class: 'form-control' %>
         </div>
-        <div>
-            <%= f.label :completed, "completed" %>
-            <%if @todo.completed.present? &&  @todo.completed %>
-                <%= f.check_box :Completed ,class: 'form-check', checked:'checked'%>
-            <%else %>
-                <%= f.check_box :Completed ,class: 'form-check'%>
-            <%end  %>
-        </div>
+        
         <div>
             <%= f.submit "Enviar", disable_with: 'Submiting...' %>
         </div>
