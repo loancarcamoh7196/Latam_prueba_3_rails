@@ -1,0 +1,16 @@
+<div class="form-group">
+    <%= form_with model: @todo,local: true do|f| %>
+        <div>
+            <%= f.label :description, "Description" %>
+            <%= f.text_field :description, class: 'form-control' %>
+        </div>
+        <div>
+            <%= f.label :completed, "completed" %>
+            <%= f.check_box :Completed ,class: 'form-check'%>
+        </div>
+        <div>
+            <%= f.submit "Crear", disable_with: 'Submiting...' %>
+        </div>
+
+    <% end %>
+</div>
