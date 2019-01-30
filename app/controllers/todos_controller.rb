@@ -9,7 +9,7 @@ class TodosController < ApplicationController
     
     def create
         @todo = Todo.new(todo_params)
-        @todo.completed ? true : false
+        @todo.completed == 1 ? true : false
         @todo.save
         redirect_to todos_path, notice: 'Se ha agregado To do! exitosamente...'
     end
@@ -18,7 +18,10 @@ class TodosController < ApplicationController
         @todo = Todo.find(params[:id])
     end
 
-    
+    def edit
+        @todo = Todo.find(params[:id]) 
+    end
+        
     private
     def todo_params
         params.require(:todo).permit(:description, :completed)
