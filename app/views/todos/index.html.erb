@@ -1,0 +1,8 @@
+<div class="row">
+    <h1>To do List</h1>
+    <ul class="list-group">
+    <% @todos.each do |todo| %>
+        <li class="list-group-item"> <%= todo.description %> <%= todo.completed %> </li>
+    <% end %>
+    </ul>
+</div>
