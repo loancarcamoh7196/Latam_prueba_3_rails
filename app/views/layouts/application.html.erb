@@ -12,6 +12,22 @@
   </head>
 
   <body>
+    <% if notice.present? %>
+      <div class="row">
+        <div class="container">
+          <%= notice %>
+        </div>
+      </div>
+    <% end %>
+
+    <% if alert.present? %>
+      <div class="row">
+        <div class="container">
+          <%= alert %>
+        </div>
+      </div>
+    <% end %>
+
     <div class="container">
       <%= yield %>
     </div>
