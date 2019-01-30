@@ -1,20 +1,27 @@
 <div class="row">
-    <div class="col-lg-6">
-        <h3>NO completados</h3>
-        <ul class="list-group">
+    <div class="col-xl-6 col-lg-6 col-6 col-md6 col-sm-12">
+        <h3 class="text-danger">NO completados</h3>
+        <ul class="list-group bg-danger">
             <% @not_completed.each do |todo| %>
                 <li class="list-group-item">
-                    <%= todo.description %>
+                   <label class="col-md-4 col-6 col-sm-12 col-lg-8"><%= todo.description %></label>
+                    <%= link_to '<i class="fas fa-check"></i>'.html_safe, complete_todo_path(todo.id), class: 'btn btn-success btn-sm', data: { method: :patch}, title: 'Completado' %>
+                    <%= link_to '<i class="fas fa-info-circle"></i>'.html_safe, todo_path(todo.id), class: 'btn btn-info btn-sm', title: 'Detalle' %> 
+                    <%= link_to '<i class="fas fa-pencil-alt"></i>'.html_safe, edit_todo_path(todo.id), class: 'btn btn-warning btn-sm', title: 'Editar'  %>
+                    <%= link_to '<i class="far fa-trash-alt"></i> '.html_safe, destroy_todo_path(todo.id), class: 'btn btn-danger btn-sm', data: {confirm:'Desea eliminar este registro?', method: :delete }, title: 'Eliminar' %>
                 </li>
             <% end %>
         </ul>
     </div>
-    <div class="col-lg-6">
-        <h3>Completados</h3>
-        <ul class="list-group">
+    <div class="col-xl-6 col-lg-6 col-6 col-md6 col-sm-12">
+        <h3 class="text-success">Completados</h3>
+        <ul class="list-group bg-success">
             <% @completed.each do |todo| %>
                 <li class="list-group-item">
-                    <%= todo.description %>
+                    <label class="col-md-4 col-6 col-sm-12 col-lg-8"><%= todo.description %></label>
+                    <%= link_to '<i class="fas fa-info-circle"></i>'.html_safe, todo_path(todo.id), class: 'btn btn-info btn-sm', title: 'Detalle' %> 
+                    <%= link_to '<i class="fas fa-pencil-alt"></i>'.html_safe, edit_todo_path(todo.id), class: 'btn btn-warning btn-sm', title: 'Editar'  %>
+                    <%= link_to '<i class="far fa-trash-alt"></i> '.html_safe, destroy_todo_path(todo.id), class: 'btn btn-danger btn-sm', data: {confirm:'Desea eliminar este registro?', method: :delete }, title: 'Eliminar' %>
                 </li>
             <% end %>
         </ul>
