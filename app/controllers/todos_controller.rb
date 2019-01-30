@@ -14,9 +14,13 @@ class TodosController < ApplicationController
         redirect_to todos_path, notice: 'Se ha agregado To do! exitosamente...'
     end
 
+    def show
+        @todo = Todo.find(params[:id])
+    end
+
+    
     private
     def todo_params
         params.require(:todo).permit(:description, :completed)
     end
-    
 end
