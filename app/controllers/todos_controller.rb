@@ -41,6 +41,13 @@ class TodosController < ApplicationController
         @todo.update(todo)
         redirect_to todos_path        
     end 
+
+    def list
+        @completed = Todo.where(completed: true)
+        @not_completed = Todo.where(completed: false)
+        
+    end
+    
         
     private
     def todo_params
